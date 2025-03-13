@@ -13,7 +13,7 @@
 #define PARSER_MODULE
 
 
-#include "../lexer/lexer.h"
+#include "lexer.h"
 #include "parserDef.h"
 
 void parseInputSourceCode(char* inputFile,char* outputFile );

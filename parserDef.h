@@ -13,7 +13,7 @@
 #ifndef PARSER_CORE_H
 #define PARSER_CORE_H
 
-#include "../lexer/lexer.h"
+#include "lexer.h"
 
 
 #define NON_TERMINAL_COUNT 30

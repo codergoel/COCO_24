@@ -3,8 +3,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include "lexer.h"
-#include "lexerDef.h"
-
+#include "parser.h"
 // Function to display usage instructions
 void displayUsage(char* programName) {
     printf("Usage: %s <input_source_file>\n", programName);
@@ -53,11 +52,17 @@ int main(int argc, char* argv[]) {
 
     printf("\n========= LEXICAL ANALYSIS COMPLETED =========\n\n");
 
+    // Close the input file as Lexer has finished processing it
+    fclose(inputFile);
+
+    printf("\n========= SYNTAX ANALYSIS (PARSER) STARTED =========\n\n");
+
+    // Call the parser with input and output file paths
+    parseInputSourceCode(argv[1], "parseTree.txt");
+
+    printf("\n========= SYNTAX ANALYSIS (PARSER) COMPLETED =========\n\n");
+
+    printf("The parse tree has been saved to 'parseTree.txt'.\n");
 
     return 0;
 }
-
-
-// gcc driver.c lexer.c -o compiler
-// ./compiler input.txt
-// ./compiler input.txt > output.txt
