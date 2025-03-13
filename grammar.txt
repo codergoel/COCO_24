@@ -1,0 +1,95 @@
+<program> <otherFunctions> <mainFunction>
+<mainFunction> MAIN <stmts> END
+<otherFunctions> <function> <otherFunctions>
+<otherFunctions> EPS
+<function> FUNID <input_par> <output_par> SEM <stmts> END
+<input_par> INPUT PARAMETER LIST SQL <parameter_list> SQR
+<output_par> OUTPUT PARAMETER LIST SQL <parameter_list> SQR
+<output_par> EPS
+<parameter_list> <dataType> ID <remaining_list>
+<dataType> <primitiveDatatype>
+<dataType> <constructedDatatype>
+<primitiveDatatype> INT
+<primitiveDatatype> REAL
+<constructedDatatype> RECORD RUID
+<constructedDatatype> UNION RUID
+<constructedDatatype> RUID
+<remaining_list> COMMA <parameter_list>
+<remaining_list> EPS
+<stmts> <typeDefinitions> <declarations> <otherStmts> <returnStmt>
+<typeDefinitions> <actualOrRedefined> <typeDefinitions>
+<typeDefinitions> EPS
+<actualOrRedefined> <typeDefinition>
+<actualOrRedefined> <definetypestmt>
+<typeDefinition> RECORD RUID <fieldDefinitions> ENDRECORD
+<typeDefinition> UNION RUID <fieldDefinitions> ENDUNION
+<fieldDefinitions> <fieldDefinition> <fieldDefinition> <moreFields>
+<fieldDefinition> TYPE <fieldType> COLON FIELDID SEM
+<fieldType> <primitiveDatatype>
+<fieldType> RUID
+<moreFields> <fieldDefinition> <moreFields>
+<moreFields> EPS
+<declarations> <declaration> <declarations>
+<declarations> EPS
+<declaration> TYPE <dataType> COLON ID <global_or_not> SEM
+<global_or_not> COLON GLOBAL
+<global_or_not> EPS
+<otherStmts> <stmt> <otherStmts>
+<otherStmts> EPS
+<stmt> <assignmentStmt>
+<stmt> <iterativeStmt>
+<stmt> <conditionalStmt>
+<stmt> <ioStmt>
+<stmt> <funCallStmt>
+<assignmentStmt> <singleOrRecId> ASSIGNOP <arithmeticExpression> SEM
+<singleOrRecId> ID <option_single_constructed>
+<option_single_constructed> EPS
+<option_single_constructed> <oneExpansion> <moreExpansions>
+<oneExpansion> DOT FIELDID
+<moreExpansions> <oneExpansion> <moreExpansions>
+<moreExpansions> EPS
+<funCallStmt> <outputParameters> CALL FUNID WITH PARAMETERS <inputParameters> SEM
+<outputParameters> SQL <idList> SQR ASSIGNOP
+<outputParameters> EPS
+<inputParameters> SQL <idList> SQR
+<iterativeStmt> WHILE OP <booleanExpression> CL <stmt> <otherStmts> ENDWHILE
+<conditionalStmt> IF OP <booleanExpression> CL THEN <stmt> <otherStmts> <elsePart>
+<elsePart> ELSE <stmt> <otherStmts> ENDIF
+<elsePart> ENDIF
+<ioStmt> READ OP <var> CL SEM
+<ioStmt> WRITE OP <var> CL SEM
+<arithmeticExpression> <term> <expPrime>
+<expPrime> <lowPrecedenceOperators> <term> <expPrime>
+<expPrime> EPS
+<term> <factor> <termPrime>
+<termPrime> <highPrecedenceOperators> <factor> <termPrime>
+<termPrime> EPS
+<factor> OP <arithmeticExpression> CL
+<factor> <var>
+<highPrecedenceOperators> MUL
+<highPrecedenceOperators> DIV
+<lowPrecedenceOperators> PLUS
+<lowPrecedenceOperators> MINUS
+<booleanExpression> OP <booleanExpression> CL <logicalOp> OP <booleanExpression> CL
+<booleanExpression> <var> <relationalOp> <var>
+<booleanExpression> NOT OP <booleanExpression> CL
+<var> <singleOrRecId>
+<var> NUM
+<var> RNUM
+<logicalOp> AND
+<logicalOp> OR
+<relationalOp> LT
+<relationalOp> LE
+<relationalOp> EQ
+<relationalOp> GT
+<relationalOp> GE
+<relationalOp> NE
+<returnStmt> RETURN <optionalReturn> SEM
+<optionalReturn> SQL <idList> SQR
+<optionalReturn> EPS
+<idList> ID <more_ids>
+<more_ids> COMMA <idList>
+<more_ids> EPS
+<definetypestmt> DEFINETYPE <A> RUID AS RUID
+<A> RECORD
+<A> UNION
