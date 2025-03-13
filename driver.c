@@ -56,3 +56,8 @@ int main(int argc, char* argv[]) {
 
     return 0;
 }
+
+
+// gcc driver.c lexer.c -o compiler
+// ./compiler input.txt
+// ./compiler input.txt > output.txt
