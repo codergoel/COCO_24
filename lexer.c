@@ -18,6 +18,7 @@
 char* tokenToString[TK_NOT_FOUND];
 bool retractFlag = false;          // renamed from "specialThing"
 bool tkStrInitialized = false;     // renamed from "tkSInit"
+bool debugPrint = false;
 
 // ------------------------- TRIE FUNCTIONS -------------------------
 
