@@ -74,8 +74,8 @@ typedef enum NonTerminal{
     arithmeticExpression,
     SingleOrRecId,
     booleanExpression,
-    NT_NOT_FOUND,
-    actualOrRedefined
+    actualOrRedefined,
+    NT_NOT_FOUND
 } NonTerminal;
 
 extern char* nonTerminalToString[NT_NOT_FOUND];

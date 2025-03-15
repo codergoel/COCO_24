@@ -83,7 +83,6 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "parserDef.h"
 #include "lexer.h"
 #include "parser.h"
 #include <time.h>
@@ -116,16 +115,16 @@ int main(int argc, char* argv[]) {
             case 1: removeComments(argv[1], argv[2]);
                     break;
 
-            case 2: FILE* lexIn = fopen(argv[1], "r");
+            case 2: {FILE* lexIn = fopen(argv[1], "r");
                     TokenList* tokens = lexInput(lexIn, argv[2]);
                     displayTokenList(tokens);
                     fclose(lexIn);
-                    break;
+                    break;}
 
             case 3: parseInputSourceCode(argv[1], argv[2]);
                     break;
             
-            case 4: clock_t start_time, end_time;
+            case 4: {clock_t start_time, end_time;
                     double total_CPU_time, total_CPU_time_in_seconds;
 
                     start_time = clock();
@@ -142,7 +141,7 @@ int main(int argc, char* argv[]) {
                     printf("\nHere is the total time taken for Lexical and Syntactic analysis and printing of parse tree in the file\n");
                     printf("Total CPU time (in clock cycles): %lf\n",total_CPU_time);
                     printf("Total CPU time (in seconds): %lf\n",total_CPU_time_in_seconds);
-                    break;
+                    break;}
             
             default: printf("Please enter a correct option!\n");
                      break;
